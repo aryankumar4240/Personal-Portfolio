@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #eee;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeInDown 1s ease forwards;
+      opacity: 0;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .header-text {
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3.8rem;
+      margin-bottom: 0.5rem;
+      color: #00bcd4;
+    }
+
+    header p {
+      font-size: 1.4rem;
+      color: #aaa;
+    }
+
+    .profile-photo {
+      width: 188px;
+      height: 250px;
+      border-radius: 15%;
+      border: 4px solid #00bcd4;
+      box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
+      animation: photoFloat 3s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(0, 188, 212, 0.8);
+    }
+
+    main {
+      max-width: 900px;
+      width: 100%;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 0.5s;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #00bcd4;
+      padding-bottom: 0.3rem;
+      display: inline-block;
+    }
+    
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card,
+    .education-card,
+    .skill-item {
+      background: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .project-card:hover,
+    .education-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 188, 212, 0.6);
+      cursor: pointer;
+    }
+
+    .project-card h3,
+    .education-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.6rem;
+      color: #00bcd4;
+    }
+
+    .project-card p,
+    .education-card p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    /* Education cards container */
+    .education {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Skills container */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill-item {
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      color: #00bcd4;
+      border: 2px solid #00bcd4;
+      border-radius: 25px;
+      user-select: none;
+      cursor: default;
+      text-align: center;
+      min-width: 100px;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+      animation-delay: 1.5s;
+    }
+    #a{
+      font-size: 20px;
+      color:cadetblue
+      
+
+    }
+    #about{
+      font-size: 20px;
+      
+      color: #ccc;
+    }
+  
+     
+    /* Animations */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes photoFloat {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Responsive design for mobile */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .profile-photo {
+        width: 100px;
+        height: 100px;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="header-text">
+        <h1>Aryan Kumar</h1>
+        <p>Web Developer | Data Scientist | Python</p>
+      </div>
+      
+      <img src="profilephoto.jpeg" alt="Aryan Kumar" class="profile-photo">
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p id="about">
+        Myself Aryan kumar, Passionate developer with experience in building performant web pages and AI models. Skilled in Python,Data Sciene and JavaScript.
+      </p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="education">
+        <div class="education-card" tabindex="0">
+          <h3>Bachelor of Technology in Information Technology</h3>
+          <p>B.P Poddar Institute of Management and Technology, (2024 - 2028)</p>
+          <p>Current year : 2nd year</p>
+        </div>
+        <div class="education-card" tabindex="0">
+          <h3>Senior secondary (Class 12) | BSEB  </h3>
+          <p>Pn college Parsa (2022-2024)</p>
+          <p>Percentage : 74.4%</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-item">Data Science</div>
+        <div class="skill-item">Python</div>
+        <div class="skill-item">JavaScript</div>
+        <div class="skill-item">HTML & CSS</div>
+        <div class="skill-item">Java Developer</div>
+        <div class="skill-item">WEb Developer</div>
+        <div class="skill-item">Artificial Intelligence Fundamentals</div>
+        
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project-card" tabindex="0">
+          <h3> Personal Portfolio Website  </h3>
+          <p>• A responsive and interactive personal portfolio website built using HTML, CSS, and JavaScript.<br>
+          • Designed to showcase personal information, skills,  projects, and contact details in a clean and modern UI.<br>
+            • Implemented smooth scrolling, navigation bar, and hover effects to enhance user experience.<br>
+            
+            
+           </p>
+        </div>
+        <div class="project-card" tabindex="0">
+          <h3>Snake Game in C (Console-based Project)</h3>
+          <p>• Developed a fully functional Snake Game using C programming and basic graphics.<br>
+            • Implemented game logic including movement, collision detection, and score tracking.<br>
+            • Enhanced understanding of loops, functions, and real-time input handling.</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <section id="Get in Touch">
+      <h2>Get in Touch</h2>
+      <p>Email: <a href="aryankumar424046@gmail.com" style="color:#00bcd4;"></a>aryankumar424046@gmail.com</p>
+      <p>Mobile:(+91)7992453028 </p>
+      <p>Address: 137, Poddar Vihar, Kaikhali kolkata 700052</p>
+      <br>
+      <div class="linked"
+      style="display: flex; align-items: center; gap: 10px;">
+      
+        
+        <img src="Linked.jpeg" 
+       
+        alt="LinkedIn logo" 
+        width="32" height="32" 
+        style="border-radius: 4px; box-shadow: 0 0 6px #0e76a8;" />
+  
+   <!-- LinkedIn Profile Link -->
+   <a  href="https://linkedin.com/in/aryan424" 
+    id="a"
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="text-blue-500 hover:text-blue-700" 
+      aria-label="Visit LinkedIn profile of Aryan Kumar">
+     linkedin.com/in/aryan424
+   </a> 
+        
+      </div>
+      
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Aryan Kumar. All rights reserved.
+</footer>
+
+<script>
+  // Animate cards and skill items on scroll (fade in)
+  const fadeElements = document.querySelectorAll('.project-card, .education-card, .skill-item');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  fadeElements.forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(20px)';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
+   
